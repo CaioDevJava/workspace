@@ -1,0 +1,61 @@
+{
+  "security": {
+    "auth": {
+      "selectedType": "gemini-api-key"
+    }
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "name": "rtk-init",
+            "type": "command",
+            "command": "rtk gain"
+          },
+          {
+            "name": "workspace-tools-context",
+            "type": "command",
+            "command": "printf '%s\\n' 'RTK, Graphify e MCPs ativos neste workspace.'"
+          }
+        ]
+      }
+    ],
+    "BeforeTool": [
+      {
+        "matcher": "read_file|list_directory",
+        "hooks": [
+          {
+            "name": "graphify-guard",
+            "type": "command",
+            "command": "/Users/caiomagno/.local/bin/graphify hook-guard gemini"
+          }
+        ]
+      }
+    ]
+  },
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/caiomagno/Desktop/workspace-test"
+      ]
+    },
+    "postgres": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-postgres",
+        "postgresql://postgres:postgres@localhost:5432/loja_laticinios"
+      ]
+    },
+    "fetch": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch"
+      ]
+    }
+  }
+}
