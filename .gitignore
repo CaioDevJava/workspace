@@ -1,0 +1,23 @@
+# Repositórios independentes de aplicações e bibliotecas
+/repos/
+
+# Dependências e arquivos gerados
+node_modules/
+dist/
+coverage/
+storybook-static/
+*.tsbuildinfo
+
+# Configurações locais e segredos
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+
+# Logs
+*.log
+
+# Arquivos do macOS
+.DS_Store
