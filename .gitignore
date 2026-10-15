@@ -1,6 +1,5 @@
 # Repositórios independentes de aplicações e bibliotecas
 /repos/
-.tokens.md
 
 # Dependências e arquivos gerados
 node_modules/
@@ -22,3 +21,4 @@ storybook-static/
 
 # Arquivos do macOS
 .DS_Store
+tokens.md
