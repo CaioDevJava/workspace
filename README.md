@@ -2,6 +2,8 @@
 
 Workspace para organizar projetos full-stack, documentação, agentes especializados, skills e ferramentas auxiliares para desenvolvimento assistido por IA.
 
+> Este workspace foi pensado para funcionar com Gemini CLI e Codex. O arquivo [GEMINI.md](GEMINI.md) continua sendo o guia específico do Gemini, enquanto este README serve como referência geral do projeto e do fluxo do workspace.
+
 O fluxo principal é:
 
 ```text
@@ -40,22 +42,29 @@ Este workspace foi criado para:
 ## Estrutura
 
 ```text
-workspace-test/
+workspace/
+├── .agents/
+│   └── skills/
+│       ├── workflow/
+│       ├── refinamento-negocio/
+│       ├── refinamento-tecnico/
+│       ├── refinamento-design/
+│       ├── refinamento-seo/
+│       ├── documentation/
+│       ├── git-commit/
+│       ├── quebra-de-tarefas/
+│       ├── testing-strategy/
+│       ├── revisao-codigo/
+│       └── execucao-desenvolvimento/
 ├── .gemini/
 │   ├── agents/
-│   │   ├── product-owner.md
-│   │   ├── arquiteto.md
-│   │   ├── designer.md
-│   │   ├── desenvolvedor.md
-│   │   └── qa.md
 │   ├── skills/
-│   │   ├── refinamento-negocio/
-│   │   ├── refinamento-tecnico/
-│   │   ├── documentation/
-│   │   └── design/
 │   └── settings.json
+├── .codex -> .gemini
 ├── docs/
-│   └── templates/
+│   ├── CODING_STANDARDS.md
+│   ├── refinamentos/
+│   └── TODO.md
 ├── ferramentas/
 │   ├── rtk/
 │   ├── graphify/
@@ -65,19 +74,9 @@ workspace-test/
 │       ├── frontend/
 │       ├── backend/
 │       ├── docs/
-│       │   ├── produtos/
-│       │   │   └── refinamento/
-│       │   ├── arquitetura/
-│       │   │   ├── refinamento/
-│       │   │   ├── decisoes/
-│       │   │   └── diagramas/
-│       │   ├── design/
-│       │   ├── api/
-│       │   ├── testes/
-│       │   └── operacoes/
-│       ├── GEMINI.md
 │       └── README.md
 ├── GEMINI.md
+├── LICENSE
 └── README.md
 ```
 
@@ -103,22 +102,33 @@ kind: local
 ---
 ```
 
-### `.gemini/skills/`
+### `.agents/skills/`
 
-Contém capacidades especializadas que podem ser ativadas pelo Gemini CLI.
+É a raiz canônica das skills do workspace. Essa pasta concentra as skills ativas e reconhecidas para a execução do fluxo local.
 
-Skills recomendadas:
+Skills presentes no workspace:
 
+- `workflow`: orquestra a esteira completa do desenvolvimento.
 - `refinamento-negocio`: transforma ideias vagas em requisitos, regras e critérios de aceite.
-- `refinamento-tecnico`: transforma o refinamento de negócio em uma solução técnica full-stack.
-- `documentation`: cria e mantém documentação técnica, funcional e operacional.
-- `design`: define experiência visual, componentes, estados e acessibilidade.
+- `refinamento-tecnico`: transforma o refinamento de negócio em uma solução técnica.
+- `refinamento-design`: define experiência visual e especificações de interface.
+- `refinamento-seo`: define estratégia de SEO, metadados e copy.
+- `documentation`: mantém a documentação do projeto.
+- `git-commit`: organiza o commit semântico.
+- `quebra-de-tarefas`: transforma a implementação em subtarefas.
+- `testing-strategy`: define estratégia de testes e QA.
+- `revisao-codigo`: revisa qualidade e riscos do código.
+- `execucao-desenvolvimento`: coordena a execução do desenvolvimento.
 
-Cada skill deve possuir um arquivo:
+Cada skill deve possuir o manifesto:
 
 ```text
-.gemini/skills/nome-da-skill/SKILL.md
+.agents/skills/nome-da-skill/SKILL.md
 ```
+
+### `.gemini/skills/` e `.codex`
+
+Esses diretórios existem como compatibilidade de runtime. Eles podem funcionar como espelho do conjunto de skills, mas não devem ser a fonte de verdade do workspace. A convenção oficial do projeto é manter a skill ativa em `.agents/skills`.
 
 ### `repos/`
 

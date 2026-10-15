@@ -47,7 +47,7 @@ Antes de iniciar qualquer ação no terminal:
 - **Gatilho:** `Próximo Agente: Designer`.
 - **Insumos Obrigatórios:** Consulta `CODING_STANDARDS.md`, `refinamento-negocio.md` e `refinamento-tecnico.md`.
 - **Ação:** Crie o conceito visual capturando a alma do negócio. Gere a imagem do protótipo e mapeie os componentes genéricos e modais de feedback.
-- **Saída Física:** 
+- **Saída Física:**
   - Imagem: `docs/refinamentos/REF-NNN-nome-da-historia/prototipo/prototipo-tela.png`
   - Documento: `docs/refinamentos/REF-NNN-nome-da-historia/refinamento-design.md`
 - **Validação Terminal:** Exiba o menu de validação visual.
@@ -120,3 +120,4 @@ Como deseja prosseguir?
 [3] Outro (Digite abaixo o que precisa ser ajustado ou refatorado nesta etapa)
 
 > Aguardando sua resposta...
+```

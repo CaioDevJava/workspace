@@ -1,5 +1,7 @@
 # Workspace de Desenvolvimento Automatizado
 
+> Este arquivo é específico para o Gemini CLI. Para a visão geral do workspace, incluindo a compatibilidade com Codex, consulte [README.md](README.md).
+
 ## Objetivo
 
 Este workspace organiza projetos de software full-stack e fornece um fluxo de trabalho automatizado e encadeado baseado em agentes e skills especializados:

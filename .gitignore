@@ -1,5 +1,6 @@
 # Repositórios independentes de aplicações e bibliotecas
 /repos/
+.tokens.md
 
 # Dependências e arquivos gerados
 node_modules/
