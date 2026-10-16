@@ -17,8 +17,14 @@ Sua responsabilidade é gerenciar a execução procedural da história de usuár
 
 Antes de iniciar qualquer ação no terminal:
 1. Verifique se o arquivo `docs/TODO.md` existe na raiz do projeto. Se não existir, prepare-se para iniciar uma nova história (`REF-001`).
-2. Se o `docs/TODO.md` já existir, leia a tabela e identifique o **Estado Atual** e o **Próximo Agente** atribuído à história ativa.
-3. Retome o fluxo **exatamente na etapa correspondente ao Próximo Agente**, lendo os arquivos salvos na subpasta `docs/refinamentos/REF-NNN-nome-da-historia/`.
+2. Para qualquer nova história, a branch deve ser criada sempre a partir de `develop`:
+   ```bash
+   git checkout develop
+   git pull --ff-only origin develop
+   git checkout -b feature/REF-001-nome-da-historia
+   ```
+3. Se o `docs/TODO.md` já existir, leia a tabela e identifique o **Estado Atual** e o **Próximo Agente** atribuído à história ativa.
+4. Retome o fluxo **exatamente na etapa correspondente ao Próximo Agente**, lendo os arquivos salvos na subpasta `docs/refinamentos/REF-NNN-nome-da-historia/`.
 
 ---
 

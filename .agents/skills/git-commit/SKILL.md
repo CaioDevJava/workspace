@@ -31,6 +31,22 @@ Toda mensagem de commit gerada por esta skill DEVE seguir rigorosamente o padrã
 
 ---
 
+## Regra de Branch para Nova História
+
+Toda nova história deve iniciar em uma branch criada a partir de `develop`.
+
+- Regra obrigatória: nunca criar nova branch a partir de `main`, `master` ou outra feature em andamento.
+- Fluxo obrigatório:
+  ```bash
+  git checkout develop
+  git pull --ff-only origin develop
+  git checkout -b feature/REF-001-nome-da-historia
+  ```
+- Convenção de nomenclatura recomendada:
+  - `feature/REF-001-cadastro-cliente`
+  - `feature/REF-023-refinamento-login`
+- Se a branch atual não estiver baseada em `develop`, o fluxo deve corrigir isso antes de continuar.
+
 ## Processo de Execução
 
 1. **Inspeção de Alterações no Git:**

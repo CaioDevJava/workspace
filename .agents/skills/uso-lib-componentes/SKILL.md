@@ -7,6 +7,22 @@ model: GPT-6-Luna
 
 # Skill: Uso da Biblioteca de Componentes Angular (`@workspace/component-library-angular`)
 
+## Repositório Oficial da Biblioteca
+
+A biblioteca de componentes reutilizáveis do workspace tem sua origem oficial no GitHub:
+
+https://github.com/CaioDevJava/lib-componentes-angular
+
+Quando um projeto Angular precisar consumir essa biblioteca, o agente deve tratar este repositório como a fonte de verdade da lib e preferir a instalação via referência do GitHub quando a dependência não estiver presente.
+
+Exemplo de instalação direta, quando necessário:
+
+```bash
+npm install git+https://github.com/CaioDevJava/lib-componentes-angular.git
+```
+
+> Se o projeto já estiver configurado com um alias ou nome de pacote local específico, mantenha esse nome conforme o `package.json` do projeto ou do workspace, mas o código deve seguir o mesmo repositório fonte acima.
+
 ## Objetivo
 
 Orientar o agente desenvolvedor na correta importação, configuração e utilização dos componentes reutilizáveis do Design System em aplicações Angular 19 (como o projeto `loja-laticinios/frontend`).

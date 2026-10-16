@@ -7,6 +7,15 @@ model: GPT-5.5
 
 # Skill: Execução de Desenvolvimento e Testes
 
+## Regra Global de Design System e Biblioteca
+
+Antes de qualquer implementação ou refatoração em `repos/`, o agente deve verificar se a biblioteca `@workspace/component-library-angular` está presente no projeto.
+
+- Se a biblioteca estiver ausente em um projeto Angular existente, o agente deve instalá-la e configurar o estilo global antes de continuar.
+- Se o projeto estiver em andamento, deve priorizar a padronização incremental da área afetada em vez de criar novos componentes primitivos do zero.
+- O uso de componentes da biblioteca é obrigatório em frontend para telas, formulários, tabelas, modais, cards, toasts e navegação.
+- A skill `uso-lib-componentes` deve ser consultada antes de cada implementação frontend relevante.
+
 ## Diretrizes Mandatórias de Código (`docs/CODING_STANDARDS.md`)
 
 Ao escrever ou refatorar qualquer arquivo dentro de `repos/`, você DEVE seguir rigorosamente:
@@ -15,7 +24,8 @@ Ao escrever ou refatorar qualquer arquivo dentro de `repos/`, você DEVE seguir 
    - Métodos puros, formatações de data/moeda, máscaras e validações sem estado interno devem ser isolados em **classes utilitárias com métodos estáticos** (ex: `DateUtils.formatToIso()`, `CpfValidator.isValid()`).
 2. **Componentização Genérica e Flexível (Frontend):**
    - Crie componentes visuais (ex: `Card`, `DataGrid`, `CustomTable`) totalmente desacoplados da lógica de domínio.
-   - Utilize props, slots ou children flexíveis para que os componentes possam ser reutilizados em qualquer outra tela do sistema.
+   - Quando houver biblioteca reutilizável disponível, prefira os componentes do Design System em vez de reimplementar primitivas do zero.
+   - Em caso de componente inexistente na biblioteca, documente o gap, registre a necessidade e aplique a solução local temporária apenas como exceção controlada.
 3. **Feedbacks Exclusivamente por Modais:**
    - Todas as notificações de sucesso, erro de validação/integração, alertas e confirmações de ação devem ser exibidas através de **modais/diálogos reaproveitáveis** (ex: `FeedbackModal`), eliminando mensagens soltas no layout ou `alert()` nativo.
 4. **Clean Code e Limite de Tamanho:**
