@@ -92,7 +92,17 @@ Contém os agentes especializados reutilizáveis do workspace:
 - `desenvolvedor.md`: implementa código e testes.
 - `qa.md`: valida critérios, fluxos e regressões.
 
-Os agentes devem possuir frontmatter YAML válido no início do arquivo:
+Os agentes ativos no runtime do Gemini incluem os seguintes arquivos:
+
+- `product-owner.md`: refina solicitações no nível de negócio.
+- `arquiteto.md`: realiza o refinamento técnico e decisões de arquitetura.
+- `designer.md`: define UX, UI, componentes e acessibilidade.
+- `desenvolvedor.md`: implementa código e testes.
+- `qa.md`: valida critérios, fluxos e regressões.
+- `code-reviewer.md`: revisa código, riscos e qualidade técnica.
+- `seo-specialist.md`: valida SEO, conteúdo e requisitos de tráfego.
+
+Esses agentes devem possuir frontmatter YAML válido no início do arquivo:
 
 ```markdown
 ---
@@ -119,6 +129,7 @@ Skills presentes no workspace:
 - `testing-strategy`: define estratégia de testes e QA.
 - `revisao-codigo`: revisa qualidade e riscos do código.
 - `execucao-desenvolvimento`: coordena a execução do desenvolvimento.
+- `uso-lib-componentes`: orienta o uso da biblioteca `@workspace/component-library-angular` e padroniza a reutilização de componentes frontend.
 
 Cada skill deve possuir o manifesto:
 
@@ -129,6 +140,8 @@ Cada skill deve possuir o manifesto:
 ### `.gemini/skills/` e `.codex`
 
 Esses diretórios existem como compatibilidade de runtime. Eles podem funcionar como espelho do conjunto de skills, mas não devem ser a fonte de verdade do workspace. A convenção oficial do projeto é manter a skill ativa em `.agents/skills`.
+
+A biblioteca de componentes reutilizáveis do workspace também deve ser tratada como parte do Design System central, com a skill canônica em `.agents/skills/uso-lib-componentes/SKILL.md`.
 
 ### `repos/`
 

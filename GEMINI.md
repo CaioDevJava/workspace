@@ -22,11 +22,14 @@ O workspace favorece clareza, rastreabilidade, baixo acoplamento e execução en
 ## Organização do Workspace
 
 ```text
-workspace-test/
+workspace/
+├── .agents/
+│   └── skills/                   <-- Fonte canônica das skills ativas do workspace
 ├── .gemini/
 │   ├── agents/                   <-- Agentes leitores/roteadores leves
-│   ├── skills/                   <-- Skills executoras com modelos calibrados
+│   ├── skills/                   <-- Compatibilidade de runtime e espelho do workspace
 │   └── settings.json
+├── .codex -> .gemini             <-- Compatibilidade para runtime do Codex
 ├── docs/
 │   ├── CODING_STANDARDS.md       <-- Padrões de Clean Code, Utilitários e Modais
 │   ├── TODO.md                   <-- Dashboard de controle de estado da esteira
