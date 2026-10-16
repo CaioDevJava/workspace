@@ -22,6 +22,15 @@ Antes de iniciar qualquer ação no terminal:
 
 ---
 
+## Regra Global de Design System e Biblioteca
+
+A política abaixo vale para qualquer projeto em `repos/`, independentemente de ter sido recém-criado ou já estar em andamento:
+
+- Antes de iniciar qualquer refinamento técnico, implementação ou refatoração, o agente deve verificar se a biblioteca `@workspace/component-library-angular` está instalada e configurada no projeto.
+- Se a biblioteca não estiver presente, o passo correto é instalá-la, ajustar a configuração global de estilos e só então prosseguir com a implementação.
+- Em projetos legados, a padronização deve ocorrer progressivamente, priorizando os pontos afetados pela tarefa atual.
+- Em qualquer etapa de codificação, o uso de componentes da biblioteca deve prevalecer sobre a criação de estruturas visuais e interativas paralelas.
+
 ## 2. Passos Procedurais da Esteira
 
 ### Passo 1: Refinamento de Negócio (Product Owner)
@@ -37,6 +46,7 @@ Antes de iniciar qualquer ação no terminal:
 - **Gatilho:** `Próximo Agente: Arquiteto`.
 - **Insumos Oblitutórios:** Consulta `docs/CODING_STANDARDS.md` e `refinamento-negocio.md`.
 - **Ação:** Defina a stack (Frontend/Backend/BD), os contratos de API e projeta a estrutura do repositório em `repos/nome-do-projeto/`.
+- **Regra obrigatória:** Antes de concluir o refinamento técnico, o Arquiteto deve verificar se o projeto já possui `@workspace/component-library-angular`. Se estiver ausente, ele deve instalar a dependência, ajustar os estilos globais e registrar essa padronização como parte do planejamento técnico.
 - **Saída Física:** Salve em `docs/refinamentos/REF-NNN-nome-da-historia/refinamento-tecnico.md` e crie o esqueleto base em `repos/` (se aprovado).
 - **Validação Terminal:** Exiba o menu de validação técnica.
 - **Transição no TODO.md:** Define `Estado Atual: CONCLUIDO REFINAMENTO TECNICO` e `Próximo Agente: Designer`.
@@ -69,6 +79,7 @@ Antes de iniciar qualquer ação no terminal:
 - **Gatilho:** `Próximo Agente: Desenvolvedor`.
 - **Fase 5.1 (Quebra de Tarefas):** Gere a decomposição modular e ordenada em `docs/refinamentos/REF-NNN-nome-da-historia/tarefas.md`. Exiba menu de aprovação do plano.
 - **Fase 5.2 (Implementação):** Codifique em `repos/` aplicando estritamente as diretrizes do `CODING_STANDARDS.md` (classes utilitárias estáticas, componentes genéricos, modais de feedback e métodos < 30 linhas). Execute os testes unitários locais.
+- **Regra obrigatória:** Quando estiver trabalhando em um projeto já existente, o Desenvolvedor deve validar a presença da biblioteca `@workspace/component-library-angular`; se ela não estiver instalada, deve instalá-la e padronizar a área afetada antes de avançar em novas implementações ou refatorações.
 - **Validação Terminal:** Exiba o menu de confirmação da implementação.
 - **Transição no TODO.md:** Define `Estado Atual: DESENVOLVIDO` e `Próximo Agente: Code Reviewer`.
 

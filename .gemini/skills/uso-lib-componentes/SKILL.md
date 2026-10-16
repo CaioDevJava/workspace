@@ -11,12 +11,22 @@ model: GPT-6-Luna
 
 Orientar o agente desenvolvedor na correta importação, configuração e utilização dos componentes reutilizáveis do Design System em aplicações Angular 19 (como o projeto `loja-laticinios/frontend`).
 
+## Regra Global de Aplicação
+
+Esta regra vale para qualquer projeto Angular em `repos/`, seja ele novo, legado ou já em andamento:
+
+- Antes de qualquer implementação ou refatoração, o agente deve verificar se a biblioteca `@workspace/component-library-angular` está instalada e configurada no projeto.
+- Se a lib não estiver presente, ele deve instalá-la, ajustar a configuração global de estilos e só então continuar o desenvolvimento.
+- Em projetos já existentes, a padronização deve acontecer em etapas, priorizando as áreas afetadas pelo trabalho atual e evitando a criação de componentes locais equivalentes.
+- Qualquer implementação que ignore a biblioteca deve ser justificada e documentada como exceção temporária, com plano de migração para o Design System.
+
 ## Regras Fundamentais
 
 1. **Standalone Components**: Todos os componentes da biblioteca são *standalone*. Sempre importe explicitamente o componente desejado no array `imports` do seu componente Angular.
-2. **Estilos Globais**: Certifique-se de que os estilos e design tokens da biblioteca estão importados no arquivo `styles.scss` da aplicação consumidora.
+2. **Estilos Globais**: Certifique-se de que os estilos e design tokens da biblioteca estejam importados no arquivo `styles.scss` da aplicação consumidora.
 3. **Consistência de Estados**: Utilize as propriedades de `state` (`success`, `error`, `warning`) e `helperText` nos campos de formulário (`BaseInput`, `BaseSelect`) em vez de estilizações manuais isoladas.
 4. **Acessibilidade (A11y)**: Respeite a estrutura semântica dos componentes, utilizando rótulos, botões de fechamento e atributos ARIA já embutidos.
+5. **Padronização contínua**: Em qualquer refatoração ou evolução incremental, prefira componentes da biblioteca em vez de recriar primitivas, telas ou modais manualmente.
 
 ---
 
